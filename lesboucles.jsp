@@ -3,21 +3,6 @@
 
 <head>
     <title>Boucles</title>
-    <script>
-        function afficherEtoiles() {
-            var valeur1 = document.getElementById("inputValeur1").value;
-            var xhr = new XMLHttpRequest();
-
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById("resultat").innerHTML = xhr.responseText;
-                }
-            };
-
-            xhr.open("GET", "etoiles.jsp?valeur1=" + valeur1, true);
-            xhr.send();
-        }
-    </script>
 </head>
 
 <body bgcolor="white">
@@ -48,35 +33,32 @@
     <p>Exemple si l'utilisateur saisit la valeur 5 :</p>
     <p>*****<br>*****<br>*****<br>*****<br>*****</p>
 
-    <%-- Deuxième formulaire avec AJAX pour afficher le carré d'étoiles --%>
-    <form onsubmit="event.preventDefault(); afficherEtoiles();">
+    <%-- Deuxième formulaire pour afficher le carré d'étoiles --%>
+    <form action="#" method="post">
         <label for="inputValeur1">Saisir le nombre d'étoiles : </label>
         <input type="text" id="inputValeur1" name="valeur1">
         <input type="submit" value="Afficher">
     </form>
 
-    <%-- Div pour afficher le carré dynamiquement --%>
-    <div id="resultat">
-        <%-- Récupération de la deuxième valeur saisie --%>
-        <% String valeur1 = request.getParameter("valeur1"); %>
+    <%-- Récupération de la deuxième valeur saisie --%>
+    <% String valeur1 = request.getParameter("valeur1"); %>
 
-        <%-- Vérification de l'existence de la valeur --%>
-        <% if (valeur1 != null && !valeur1.isEmpty()) { 
-            int cpt1 = Integer.parseInt(valeur1);
-        %>
-            <p>
-            <%-- Boucle pour afficher un carré d'étoiles --%>
-            <% for (int i = 0; i < cpt1; i++) { %>
-                <% for (int j = 0; j < cpt1; j++) { %>
-                    <%= "*" %>
-                <% } %>
-                <br> <%-- Saut de ligne après chaque ligne d'étoiles --%>
+    <%-- Vérification de l'existence de la valeur --%>
+    <% if (valeur1 != null && !valeur1.isEmpty()) { 
+        int cpt1 = Integer.parseInt(valeur1);
+    %>
+        <p>
+        <%-- Boucle pour afficher un carré d'étoiles --%>
+        <% for (int i = 0; i < cpt1; i++) { %>
+            <% for (int j = 0; j < cpt1; j++) { %>
+                <%= "*" %>
             <% } %>
-            </p>
-        <% } else { %>
-            <p>Veuillez entrer une valeur valide.</p>
+            <br> <%-- Saut de ligne après chaque ligne d'étoiles --%>
         <% } %>
-    </div>
+        </p>
+    <% } else if (valeur1 != null) { %>
+        <p>Veuillez entrer une valeur valide.</p>
+    <% } %>
 
     <h2>Exercice 2 : Triangle rectangle gauche</h2>
     <p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
@@ -106,13 +88,4 @@
 
     <h2>Exercice 7 : La table de multiplication</h2>
     <p>Ecrire le code afin de créer une table de multiplication</p>
-    <p>Exemple si l'utilisateur saisie le valeur 5</p>
-    <p>5 x 1 = 5</p>
-    <p>5 x 2 = 10</p>
-    <p>5 x 3 = 15</p>
-    <p>5 x 4 = 20</p>
-    <p>5 x 5 = 25</p>
-
-    <p><a href="index.html">Retour au sommaire</a></p>
-</body>
-</html>
+    <p
