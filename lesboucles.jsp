@@ -71,7 +71,7 @@
                 <%= "*" %>
             <% } %>
             <br> <%-- Saut de ligne après chaque ligne d'étoiles --%>
-       
+       <% } %>
         </p>
     <% } else { %>
         <p>Veuillez entrer une valeur valide.</p>
