@@ -29,6 +29,11 @@
 <p>Ecrire le code afin de produire un carré d'étoile</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>*****</br>*****</br>*****</br>*****</br>*****</p>
+<form action="#" method="post">
+    <label for="inputValeur1">Saisir le nombre d'étoiles : </label>
+    <input type="text" id="inputValeur1" name="valeur1">
+    <input type="submit" value="Afficher">
+</form>
 <%-- Récupération de la valeur saisie par l'utilisateur --%>
 <% String valeur1 = request.getParameter("valeur1"); %>
 
