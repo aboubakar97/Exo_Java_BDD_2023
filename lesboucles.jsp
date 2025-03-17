@@ -1,7 +1,23 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 <title>Boucles</title>
+<script>
+        function afficherEtoiles() {
+            var valeur = document.getElementById("inputValeur1").value;
+            var xhr = new XMLHttpRequest();
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("resultat").innerHTML = xhr.responseText;
+                }
+            };
+
+            xhr.open("GET", "etoiles.jsp?valeur1=" + valeur, true);
+            xhr.send();
+        }
+    </script>
 </head>
 <body bgcolor=white>
 <h1>Exercices sur les boucles</h1>
@@ -29,7 +45,7 @@
 <p>Ecrire le code afin de produire un carré d'étoile</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>*****</br>*****</br>*****</br>*****</br>*****</p>
-<form >
+<form onsubmit="event.preventDefault(); afficherEtoiles();">
     <label for="inputValeur1">Saisir le nombre d'étoiles : </label>
     <input type="text" id="inputValeur1" name="valeur1">
     <input type="submit" value="Afficher">
