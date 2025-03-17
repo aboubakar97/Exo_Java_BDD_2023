@@ -29,7 +29,7 @@
 <p>Ecrire le code afin de produire un carré d'étoile</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>*****</br>*****</br>*****</br>*****</br>*****</p>
-<form action="#" method="post">
+<form >
     <label for="inputValeur1">Saisir le nombre d'étoiles : </label>
     <input type="text" id="inputValeur1" name="valeur1">
     <input type="submit" value="Afficher">
