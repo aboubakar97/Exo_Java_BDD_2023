@@ -30,16 +30,16 @@
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>*****</br>*****</br>*****</br>*****</br>*****</p>
 <%-- Récupération de la valeur saisie par l'utilisateur --%>
-<% String valeur = request.getParameter("valeur"); %>
+<% String valeur1 = request.getParameter("valeur1"); %>
 
 <%-- Vérification de l'existence de la valeur --%>
-<% if (valeur != null && !valeur.isEmpty()) { 
-        int cpt = Integer.parseInt(valeur); 
+<% if (valeur1 != null && !valeur1.isEmpty()) { 
+        int cpt1 = Integer.parseInt(valeur1); 
 %>
     <p>
     <%-- Boucle pour afficher un carré d'étoiles --%>
-    <% for (int i = 0; i < cpt; i++) { %>
-        <% for (int j = 0; j < cpt; j++) { %>
+    <% for (int i = 0; i < cpt1; i++) { %>
+        <% for (int j = 0; j < cpt1; j++) { %>
             <%= "*" %>
         <% } %>
         <br> <%-- Saut de ligne après chaque ligne d'étoiles --%>
